@@ -5,9 +5,6 @@ import Heading from "./components/heading/heading.js";
 const head = new Heading();
 head.render();
 
-const head2 = new Heading();
-head2.render();
-
 const hBtn = new HelloWorldButton();
 hBtn.render();
 

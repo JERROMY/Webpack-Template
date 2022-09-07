@@ -19,9 +19,12 @@ css-loader => MiniCssExtractPlugin.loader
 
 module.exports = {
 
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/hello-world.js',
+        'bear': './src/bear.js',
+    },
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: '[name].[contenthash].js',
         path: path.resolve( __dirname, './dist' ),
         publicPath: '',
         // publicPath: 'dist/',
@@ -80,13 +83,24 @@ module.exports = {
     plugins: [
         // new TerserPlugin(), production is default
         new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css',
+            filename: '[name].[contenthash].css',
         }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'hello world 2',
-            template: 'src/index.hbs',
-            description: 'test desc'
+            filename: 'hello-world.html',
+            chunks: ['hello-world'],
+            title: 'hello world',
+            template: 'src/page-template.hbs',
+            description: 'H',
+            minify: false,
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'bear.html',
+            chunks: ['bear'],
+            title: 'Bear',
+            template: 'src/page-template.hbs',
+            description: 'B',
+            minify: false,
         }),
     ]
 
