@@ -34,6 +34,12 @@ module.exports = {
         // },
     },
     mode: 'production',
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 3000,
+        }
+    },
     module: {
         rules:[
             {

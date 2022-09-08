@@ -1,9 +1,11 @@
 import HelloWorldButton from './components/hellow-world-button/hello-world-button.js';
 import Heading from "./components/heading/heading.js";
+import React from 'react';
+
 
 
 const head = new Heading();
-head.render();
+head.render( 'hello world' );
 
 const hBtn = new HelloWorldButton();
 hBtn.render();
